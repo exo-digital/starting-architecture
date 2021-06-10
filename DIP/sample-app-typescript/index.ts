@@ -1,4 +1,4 @@
-const birthdayWather = require("./user");
+import { birthdayWather } from "./user";
 
 const users = [
   {
