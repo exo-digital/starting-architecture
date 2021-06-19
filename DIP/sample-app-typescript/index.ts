@@ -1,3 +1,4 @@
+import { EmailHandler } from "./emailSender";
 import { birthdayWather } from "./user";
 
 const users = [
@@ -9,5 +10,5 @@ const users = [
   },
 ];
 users.forEach((user) => {
-  birthdayWather(user);
+  birthdayWather(user, new EmailHandler());
 });

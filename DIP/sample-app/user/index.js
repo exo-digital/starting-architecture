@@ -1,8 +1,7 @@
-const sendEmailMessage = require("../emailSender");
-module.exports = function birthdayWather(user) {
+module.exports = function birthdayWather(user, messageSender) {
   if (user.daysToBirthday === 0) {
-    sendEmailMessage(user, "Today is your birthday");
+    messageSender(user, "Today is your birthday");
   } else if (user.daysToBirthday === 10) {
-    sendEmailMessage(user, "your bithday is close");
+    messageSender(user, "your bithday is close");
   }
 };

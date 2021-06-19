@@ -1,4 +1,5 @@
 const birthdayWather = require("./user");
+const sendEmailMessage = require("./emailSender");
 
 const users = [
   {
@@ -9,5 +10,5 @@ const users = [
   },
 ];
 users.forEach((user) => {
-  birthdayWather(user);
+  birthdayWather(user, sendEmailMessage);
 });

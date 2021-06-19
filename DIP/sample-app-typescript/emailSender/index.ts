@@ -1,3 +1,4 @@
+import { IBirthDayNotifier } from "../user/ibirthDayNotifier";
 import { User } from "../user/user";
 
 const emailProvider = {
@@ -10,8 +11,4 @@ export class EmailHandler implements IBirthDayNotifier {
   sendMessage(user: User, message: string) {
     emailProvider.sendEmail(user.email, message);
   }
-}
-
-interface IBirthDayNotifier {
-  sendMessage(user: User, message: string): void;
 }

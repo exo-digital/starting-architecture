@@ -1,9 +1,12 @@
-import { EmailHandler } from "../emailSender";
-export function birthdayWather(user: any) {
-  const emailHandler = new EmailHandler();
+import { IBirthDayNotifier } from "./ibirthDayNotifier";
+import { User } from "./user";
+export function birthdayWather(
+  user: User,
+  birthdayNotifier: IBirthDayNotifier
+) {
   if (user.daysToBirthday === 0) {
-    emailHandler.sendMessage(user, "Today is your birthday");
+    birthdayNotifier.sendMessage(user, "Today is your birthday");
   } else if (user.daysToBirthday === 10) {
-    emailHandler.sendMessage(user, "your bithday is close");
+    birthdayNotifier.sendMessage(user, "your bithday is close");
   }
 }
