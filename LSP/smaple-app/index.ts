@@ -5,6 +5,9 @@ class Human {
   }
   type: string;
   name: string;
+  canBeANominee(): boolean {
+    return false;
+  }
 }
 
 class PoliceMan extends Human {
@@ -19,6 +22,9 @@ class PoliceMan extends Human {
   }
   yearsInService: number;
   numberOfCrimesResolved: number;
+  canBeANominee(): boolean {
+    return this.yearsInService > 30 && this.numberOfCrimesResolved > 10;
+  }
 }
 
 class FireMan extends Human {
@@ -33,6 +39,9 @@ class FireMan extends Human {
   }
   numberOfPeopleSaved: number;
   yearsInService: number;
+  canBeANominee(): boolean {
+    return this.yearsInService > 30 && this.numberOfPeopleSaved > 30;
+  }
 }
 
 class ScientistMan extends Human {
@@ -41,25 +50,16 @@ class ScientistMan extends Human {
     this.hasReceivedNoblePrize = hasReceivedNoblePrize;
   }
   hasReceivedNoblePrize: boolean;
+  canBeANominee(): boolean {
+    return this.hasReceivedNoblePrize;
+  }
 }
 
 function australianOfTheYearNomineeDecider(people: Human[]): Human[] {
   const nominees: Human[] = [];
   people.forEach((person) => {
-    if (person.type === "PoliceMan") {
-      if (
-        (person as PoliceMan).yearsInService > 30 &&
-        (person as PoliceMan).numberOfCrimesResolved > 10
-      ) {
-        nominees.push(person);
-      }
-    } else if (person.type === "FireMan") {
-      if (
-        (person as FireMan).numberOfPeopleSaved > 30 &&
-        (person as FireMan).yearsInService > 30
-      ) {
-        nominees.push(person);
-      }
+    if (person.canBeANominee()) {
+      nominees.push(person);
     }
   });
 
