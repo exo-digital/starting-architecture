@@ -1,5 +1,9 @@
 import { EmailHandler } from "./emailSender";
 import { birthdayWather } from "./user";
+import {
+  GrownUpBirthDayMessageBuilder,
+  TeenageBirthDayMessageBuilder,
+} from "./user/birthdayMessageBuider";
 
 const users = [
   {
@@ -11,5 +15,8 @@ const users = [
   },
 ];
 users.forEach((user) => {
-  birthdayWather(user, new EmailHandler());
+  birthdayWather(user, new EmailHandler(), [
+    new TeenageBirthDayMessageBuilder(),
+    new GrownUpBirthDayMessageBuilder(),
+  ]);
 });
