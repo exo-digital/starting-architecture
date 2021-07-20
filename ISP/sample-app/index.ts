@@ -3,12 +3,12 @@ class BankAccount {
     amount: number,
     user: User,
     openDate: Date,
-    lastTransactionAmmount: number
+    lastTransactionAmount: number
   ) {
     this.amount = amount;
     this.user = user;
     this.openDate = openDate;
-    this.lastTransactionAmmount = lastTransactionAmmount;
+    this.lastTransactionAmmount = lastTransactionAmount;
   }
   amount: number;
   user: User;
